@@ -64,10 +64,12 @@ export class SubirPublicacionPage {
 
   ionViewDidLoad() {
     this.fireService.imagenSubir = "";
-    if( this.navParams.get("imagen") === undefined)
+    if( this.navParams.get("imagen") === undefined){
       this.fotoActu = false;
-    else
+    }else{
       this.fotoActu = true;
+      this.imgPost = this.navParams.get("imagen");
+    }
 
   }
 
