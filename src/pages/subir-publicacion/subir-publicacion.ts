@@ -25,6 +25,7 @@ export class SubirPublicacionPage {
   tip: String;
   imgPost: any;
   fotoActu: Boolean;
+  fotoActu2: Boolean
   imgPreview: string;
 
   constructor(public navCtrl: NavController,
@@ -55,6 +56,7 @@ export class SubirPublicacionPage {
   abrirCamara() {
     this.fireService.subirFotoPost(this.myForm.value.titulo).then(val => {
       this.fotoActu = true;
+      this.fotoActu2 = true;
       this.imgPost = val;
       this.imgPreview = 'data:image/jpeg;base64,' + val;
     });
@@ -66,8 +68,10 @@ export class SubirPublicacionPage {
     this.fireService.imagenSubir = "";
     if( this.navParams.get("imagen") === undefined){
       this.fotoActu = false;
+      this.fotoActu2 = false;
     }else{
       this.fotoActu = true;
+      this.fotoActu2 = false;
       this.imgPost = this.navParams.get("imagen");
     }
 
@@ -93,7 +97,7 @@ export class SubirPublicacionPage {
         });
       }
     } else {
-      if (this.fotoActu) {
+      if (this.fotoActu && this.fotoActu2 ) {
         this.fireService.postPicture(this.imgPost, this.myForm.value.titulo).then(val => {
           this.fireService.actualizarPublicacion(this.myForm.value.titulo, this.myForm.value.descripcion, this.myForm.value.tipo, this.navParams.get("key")).then(value => {
             loading.dismiss();
