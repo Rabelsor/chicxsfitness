@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-searchbar [(ngModel)]="myInput" placeholder="Nombre y apellidos" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngFor="let a of listaAmigos">
+    <ion-list *ngIf="a.notificacion" class="ion-card">
+      <ion-item-sliding #item>
+        <ion-item style="background-color: #A96A02">
+          <ion-avatar item-start (click)="verPerfil(a.uid)">
+            <img src={{a.foto}}>
+          </ion-avatar>
+          <h2 (click)="verPerfil(a.uid)">{{a.nombre}} {{a.apellidos}}</h2>
+          <ion-icon name="chatbubbles" item-end (click)="messageTo(a.uid)">
+          </ion-icon>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button (click)="borrarMensajes(a.uid)">Borrar</button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+
+
+    <ion-list *ngIf="!a.notificacion" class="ion-card">
+      <ion-item-sliding #item>
+        <ion-item>
+          <ion-avatar item-start (click)="verPerfil(a.uid)">
+            <img src={{a.foto}}>
+          </ion-avatar>
+          <h2 (click)="verPerfil(a.uid)">{{a.nombre}} {{a.apellidos}}</h2>
+          <ion-icon name="chatbubbles" item-end (click)="messageTo(a.uid)">
+          </ion-icon>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button (click)="borrarMensajes(a.uid)">Borrar</button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+  </div>
+</ion-content>

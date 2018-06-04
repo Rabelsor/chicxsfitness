@@ -1,0 +1,8 @@
+{
+  "name": "ChicxsFitness",
+  "app_id": "5bb61c13",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

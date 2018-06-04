@@ -1,0 +1,60 @@
+<!--
+  Generated template for the SubirPublicacionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Subir Publicacion</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form [formGroup]="myForm" (ngSubmit)="guardarPublicacion()">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Titulo:</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="titulo" type="text" placeholder="Titulo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Descripcion:</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea rows="5" formControlName="descripcion" type="text" placeholder="Descripcion"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tipo</ion-label>
+        <ion-select formControlName="tipo">
+          <ion-option value="post">Post</ion-option>
+          <ion-option value="dieta">Dieta</ion-option>
+          <ion-option value="ejercicio">Ejercicio</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <!-- <ion-img *ngIf="fotoActu" [width]="100" [height]="80" src="{{imgPreview}}"></ion-img> -->
+        <img [src]="imgPreview" *ngIf="fotoActu" [width]="100" [height]="80" imageViewer #myImage (click)="presentImage(myImage)"  />
+        <p *ngIf="!fotoActu"></p>
+      </ion-item>
+      <ion-item>
+        <p ion-button block style="color:white;" (click)="abrirCamara()">Subir foto</p>
+      </ion-item>
+
+    </ion-list>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!myForm.valid">Subamos esa publicacion</button>
+    </div>
+  </form>
+
+</ion-content>

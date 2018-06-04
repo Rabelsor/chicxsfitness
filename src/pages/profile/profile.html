@@ -1,0 +1,84 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color=primary>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> {{rol}} : {{nombre}}</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="editarPerfil()">
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src={{foto}} imageViewer #myImage (click)="presentImage(myImage)" />
+      </ion-avatar>
+      <button ion-button (click)='cambiarFoto();'>Cambia tu foto</button>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="person" item-left></ion-icon>
+      <ion-label stacked>Nombre : {{nombre}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="body" item-left></ion-icon>
+      <ion-label stacked>Apellidos: {{apellidos}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="mail" item-left></ion-icon>
+      <ion-label stacked>Email: {{correo}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="battery-full" item-left></ion-icon>
+      <ion-label stacked>Edad: {{edad}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="nutrition" item-left></ion-icon>
+      <ion-label stacked>Peso: {{peso}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="woman" item-left></ion-icon>
+      <ion-label stacked>Sexo: {{sexo}}</ion-label>
+      <ion-icon name="man" item-right></ion-icon>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-card (click)="abrirPublicaciones('post')">
+    <img src="http://chicxsfitness.ddns.net:8081/subirFoto/banners/publicacionesBanner.png" />
+  </ion-card>
+
+  <ion-card (click)="abrirPublicaciones('dieta')">
+    <img src="http://chicxsfitness.ddns.net:8081/subirFoto/banners/dietasBanner.png" />
+  </ion-card>
+
+  <ion-card (click)="abrirPublicaciones('ejercicio')">
+    <img src="http://chicxsfitness.ddns.net:8081/subirFoto/banners/ejerciciosBanner.png" />
+  </ion-card>
+
+  <ion-card (click)="abrirFavoritos()">
+    <img src="http://chicxsfitness.ddns.net:8081/subirFoto/banners/favoritosBanner.png" />
+  </ion-card>
+
+</ion-content>

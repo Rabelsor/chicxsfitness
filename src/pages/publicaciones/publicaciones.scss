@@ -1,0 +1,51 @@
+page-publicaciones {
+
+
+    #form {
+        width: 250px;
+        margin: 0 auto;
+        height: 50px;
+      }
+      
+      #form p {
+        text-align: center;
+      }
+      
+      #form label {
+        font-size: 20px;
+      }
+      
+      input[type="radio"] {
+        display: none;
+      }
+      
+      label {
+        color: yellow;
+      }
+      
+      label:hover,
+      label:hover ~ label {
+        color: yellow;
+      }
+      
+      input[type="radio"]:checked ~ label {
+        color: yellow;
+      }
+
+      .clasificacion {
+        direction: rtl;
+        unicode-bidi: bidi-override;
+        margin-top: 8%;
+        margin-right: 8%;
+      }
+      
+      .alinearMeGusta  {
+        margin-top: 4%;
+        text-align: right;
+        padding-right: 6%;
+      }
+
+      .fecha {
+        color: black;
+      }
+}

@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Bienvenido</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <form [formGroup]="myForm" (ngSubmit)="guardarDatos()">
+        <ion-list>
+          <ion-item>
+            <ion-icon name="person" item-left></ion-icon>
+            <ion-label stacked>Nombre:</ion-label>
+            <ion-input formControlName="nombre" type="text" placeholder="Nombre"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="body" item-left></ion-icon>
+            <ion-label stacked>Apellidos:</ion-label>
+            <ion-input formControlName="apellidos" type="text" placeholder="Apellidos"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-icon name="battery-full" item-left></ion-icon>
+                <ion-label stacked>Edad:</ion-label>
+                <ion-input formControlName="edad" type="number" placeholder="Edad"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="nutrition" item-left></ion-icon>
+            <ion-label stacked>Peso:</ion-label>
+            <ion-input formControlName="peso" type="number" placeholder="Peso"></ion-input>
+          </ion-item>
+          <ion-item>
+                  <ion-icon name="key" item-left></ion-icon>
+                  <ion-label stacked>Sexo:</ion-label>
+                  <ion-select formControlName="sexo">
+                    <ion-option value="Mujer">Mujer</ion-option>
+                    <ion-option value="Hombre">Hombre</ion-option>
+                    <ion-option value="X">X</ion-option>
+                  </ion-select>
+          </ion-item>
+        </ion-list>
+        <div padding>
+          <button ion-button block type="submit" [disabled]="!myForm.valid">Guarda Tus Datos</button>
+        </div>
+      </form>
+
+
+</ion-content>

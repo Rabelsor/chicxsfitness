@@ -1,0 +1,38 @@
+<!--
+  Generated template for the BusquedaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-searchbar [(ngModel)]="myInput" placeholder="Correo" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngFor="let a of listaEncontrados">
+    <ion-list class="ion-card">
+      <ion-item (click)="verPerfil(a.uid)">
+        <ion-item>
+          <ion-avatar item-start>
+            <img src={{a.foto}}>
+          </ion-avatar>
+          <h2>{{a.nombre}} {{a.apellidos}}</h2>
+        </ion-item>
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+
+
+</ion-content>

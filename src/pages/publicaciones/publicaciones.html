@@ -1,0 +1,342 @@
+<!--
+  Generated template for the PublicacionesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{titulo}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div *ngFor="let p of listaPublicaciones">
+    <ion-card *ngIf="p.tipo=='dieta'" class="ion-card" style="background-color: #94E794">
+
+      <ion-item style="background-color: #94E794">
+        <ion-icon name="more" item-right (click)="abrirMas(p.titulo,p.descripcion,p.key,p.keyUser,p.tipo, p.fotoPubli)"></ion-icon>
+        <ion-avatar item-start>
+          <img src={{p.foto}}>
+        </ion-avatar>
+        <h2>{{p.titulo}}</h2>
+      </ion-item>
+
+      <img padding imageViewer #myImage (click)="presentImage(myImage)" src="{{p.fotoPubli}}" />
+      <ion-card-content>
+        <p>{{p.descripcion}}</p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col col-2 (click)="meGusta(p.key,p.keyUser,p.likes)">
+          <button ion-button icon-left clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{p.likes}}</div>
+          </button>
+        </ion-col>
+        <ion-col col-6>
+          <!-- Empieza la valorazion-->
+
+          <p class="clasificacion">
+
+
+            <label for="radio5" *ngIf="p.valoracion>=5">
+              <ion-icon name="star" (click)="votar(5,p.key,p.keyUser)">
+                <ion-input id="radio5" type="radio" name="estrellas" value="5"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio5" *ngIf="p.valoracion<5">
+              <ion-icon name="star-outline" (click)="votar(5,p.key,p.keyUser)">
+                <ion-input id="radio5" type="radio" name="estrellas" value="5"></ion-input>
+              </ion-icon>
+            </label>
+
+
+            <label for="radio4" *ngIf="p.valoracion>=4">
+              <ion-icon name="star" (click)="votar(4,p.key,p.keyUser)">
+                <ion-input id="radio4" type="radio" name="estrellas" value="4"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio4" *ngIf="p.valoracion<4">
+              <ion-icon name="star-outline" (click)="votar(4,p.key,p.keyUser)">
+                <ion-input id="radio4" type="radio" name="estrellas" value="4"></ion-input>
+              </ion-icon>
+            </label>
+
+
+            <label for="radio3" *ngIf="p.valoracion>=3">
+              <ion-icon name="star" (click)="votar(3,p.key,p.keyUser)">
+                <ion-input id="radio3" type="radio" name="estrellas" value="3"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio3" *ngIf="p.valoracion<3">
+              <ion-icon name="star-outline" (click)="votar(3,p.key,p.keyUser)">
+                <ion-input id="radio3" type="radio" name="estrellas" value="3"></ion-input>
+              </ion-icon>
+            </label>
+
+
+            <label for="radio2" *ngIf="p.valoracion>=2">
+              <ion-icon name="star" (click)="votar(2,p.key,p.keyUser)">
+                <ion-input id="radio2" type="radio" name="estrellas" value="2"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio2" *ngIf="p.valoracion<2">
+              <ion-icon name="star-outline" (click)="votar(2,p.key,p.keyUser)">
+                <ion-input id="radio2" type="radio" name="estrellas" value="2"></ion-input>
+              </ion-icon>
+            </label>
+
+
+            <label for="radio1" *ngIf="p.valoracion>=1">
+              <ion-icon name="star" (click)="votar(1,p.key,p.keyUser)">
+                <ion-input id="radio1" type="radio" name="estrellas" value="1"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio1" *ngIf="p.valoracion<1">
+              <ion-icon name="star-outline" (click)="votar(1,p.key,p.keyUser)">
+                <ion-input id="radio1" type="radio" name="estrellas" value="1"></ion-input>
+              </ion-icon>
+            </label>
+
+          </p>
+
+          <!-- Termina la valorazion-->
+
+        </ion-col>
+
+
+        <ion-col col-4 class="alinearMeGusta">
+          <ion-note class="fecha">
+            {{p.fecha}}
+          </ion-note>
+        </ion-col>
+      </ion-row>
+
+
+    </ion-card>
+    <ion-card *ngIf="p.tipo=='post'" class="ion-card" style="background-color: #90AED7">
+
+      <ion-item style="background-color: #90AED7">
+        <ion-icon name="more" item-right (click)="abrirMas(p.titulo,p.descripcion,p.key,p.keyUser,p.tipo, p.fotoPubli)"></ion-icon>
+        <ion-avatar item-start>
+          <img src={{p.foto}}>
+        </ion-avatar>
+        <h2>{{p.titulo}}</h2>
+      </ion-item>
+
+      <img padding imageViewer #myImage (click)="presentImage(myImage)" src="{{p.fotoPubli}}" />
+      <ion-card-content>
+        <p>{{p.descripcion}}</p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col col-2 (click)="meGusta(p.key,p.keyUser,p.likes)">
+          <button ion-button icon-left clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{p.likes}}</div>
+          </button>
+        </ion-col>
+        <ion-col col-6>
+          <!-- Empieza la valorazion-->
+
+          <p class="clasificacion">
+
+
+            <label for="radio5" *ngIf="p.valoracion>=5">
+              <ion-icon name="star" (click)="votar(5,p.key,p.keyUser)">
+                <ion-input id="radio5" type="radio" name="estrellas" value="5"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio5" *ngIf="p.valoracion<5">
+              <ion-icon name="star-outline" (click)="votar(5,p.key,p.keyUser)">
+                <ion-input id="radio5" type="radio" name="estrellas" value="5"></ion-input>
+              </ion-icon>
+            </label>
+
+
+            <label for="radio4" *ngIf="p.valoracion>=4">
+              <ion-icon name="star" (click)="votar(4,p.key,p.keyUser)">
+                <ion-input id="radio4" type="radio" name="estrellas" value="4"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio4" *ngIf="p.valoracion<4">
+              <ion-icon name="star-outline" (click)="votar(4,p.key,p.keyUser)">
+                <ion-input id="radio4" type="radio" name="estrellas" value="4"></ion-input>
+              </ion-icon>
+            </label>
+
+
+            <label for="radio3" *ngIf="p.valoracion>=3">
+              <ion-icon name="star" (click)="votar(3,p.key,p.keyUser)">
+                <ion-input id="radio3" type="radio" name="estrellas" value="3"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio3" *ngIf="p.valoracion<3">
+              <ion-icon name="star-outline" (click)="votar(3,p.key,p.keyUser)">
+                <ion-input id="radio3" type="radio" name="estrellas" value="3"></ion-input>
+              </ion-icon>
+            </label>
+
+
+            <label for="radio2" *ngIf="p.valoracion>=2">
+              <ion-icon name="star" (click)="votar(2,p.key,p.keyUser)">
+                <ion-input id="radio2" type="radio" name="estrellas" value="2"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio2" *ngIf="p.valoracion<2">
+              <ion-icon name="star-outline" (click)="votar(2,p.key,p.keyUser)">
+                <ion-input id="radio2" type="radio" name="estrellas" value="2"></ion-input>
+              </ion-icon>
+            </label>
+
+
+            <label for="radio1" *ngIf="p.valoracion>=1">
+              <ion-icon name="star" (click)="votar(1,p.key,p.keyUser)">
+                <ion-input id="radio1" type="radio" name="estrellas" value="1"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio1" *ngIf="p.valoracion<1">
+              <ion-icon name="star-outline" (click)="votar(1,p.key,p.keyUser)">
+                <ion-input id="radio1" type="radio" name="estrellas" value="1"></ion-input>
+              </ion-icon>
+            </label>
+
+          </p>
+
+          <!-- Termina la valorazion-->
+
+        </ion-col>
+
+
+        <ion-col col-4 class="alinearMeGusta">
+          <ion-note class="fecha">
+            {{p.fecha}}
+          </ion-note>
+        </ion-col>
+      </ion-row>
+
+
+    </ion-card>
+    <ion-card *ngIf="p.tipo=='ejercicio'" class="ion-card" style="background-color: #FFA3A3">
+
+      <ion-item style="background-color: #FFA3A3">
+        <ion-icon name="more" item-right (click)="abrirMas(p.titulo,p.descripcion,p.key,p.keyUser,p.tipo, p.fotoPubli)"></ion-icon>
+        <ion-avatar item-start>
+          <img src={{p.foto}}>
+        </ion-avatar>
+        <h2>{{p.titulo}}</h2>
+      </ion-item>
+
+      <img padding imageViewer #myImage (click)="presentImage(myImage)" src="{{p.fotoPubli}}" />
+      <ion-card-content>
+        <p>{{p.descripcion}}</p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col col-2 (click)="meGusta(p.key,p.keyUser,p.likes)">
+          <button ion-button icon-left clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{p.likes}}</div>
+          </button>
+        </ion-col>
+        <ion-col col-6>
+          <!-- Empieza la valorazion-->
+
+          <p class="clasificacion">
+
+
+            <label for="radio5" *ngIf="p.valoracion>=5">
+              <ion-icon name="star" (click)="votar(5,p.key,p.keyUser)">
+                <ion-input id="radio5" type="radio" name="estrellas" value="5"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio5" *ngIf="p.valoracion<5">
+              <ion-icon name="star-outline" (click)="votar(5,p.key,p.keyUser)">
+                <ion-input id="radio5" type="radio" name="estrellas" value="5"></ion-input>
+              </ion-icon>
+            </label>
+
+
+            <label for="radio4" *ngIf="p.valoracion>=4">
+              <ion-icon name="star" (click)="votar(4,p.key,p.keyUser)">
+                <ion-input id="radio4" type="radio" name="estrellas" value="4"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio4" *ngIf="p.valoracion<4">
+              <ion-icon name="star-outline" (click)="votar(4,p.key,p.keyUser)">
+                <ion-input id="radio4" type="radio" name="estrellas" value="4"></ion-input>
+              </ion-icon>
+            </label>
+
+
+            <label for="radio3" *ngIf="p.valoracion>=3">
+              <ion-icon name="star" (click)="votar(3,p.key,p.keyUser)">
+                <ion-input id="radio3" type="radio" name="estrellas" value="3"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio3" *ngIf="p.valoracion<3">
+              <ion-icon name="star-outline" (click)="votar(3,p.key,p.keyUser)">
+                <ion-input id="radio3" type="radio" name="estrellas" value="3"></ion-input>
+              </ion-icon>
+            </label>
+
+
+            <label for="radio2" *ngIf="p.valoracion>=2">
+              <ion-icon name="star" (click)="votar(2,p.key,p.keyUser)">
+                <ion-input id="radio2" type="radio" name="estrellas" value="2"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio2" *ngIf="p.valoracion<2">
+              <ion-icon name="star-outline" (click)="votar(2,p.key,p.keyUser)">
+                <ion-input id="radio2" type="radio" name="estrellas" value="2"></ion-input>
+              </ion-icon>
+            </label>
+
+
+            <label for="radio1" *ngIf="p.valoracion>=1">
+              <ion-icon name="star" (click)="votar(1,p.key,p.keyUser)">
+                <ion-input id="radio1" type="radio" name="estrellas" value="1"></ion-input>
+              </ion-icon>
+            </label>
+            <label for="radio1" *ngIf="p.valoracion<1">
+              <ion-icon name="star-outline" (click)="votar(1,p.key,p.keyUser)">
+                <ion-input id="radio1" type="radio" name="estrellas" value="1"></ion-input>
+              </ion-icon>
+            </label>
+
+          </p>
+
+          <!-- Termina la valorazion-->
+
+        </ion-col>
+
+
+        <ion-col col-4 class="alinearMeGusta">
+          <ion-note class="fecha">
+            {{p.fecha}}
+          </ion-note>
+        </ion-col>
+      </ion-row>
+
+
+    </ion-card>
+
+  </div>
+
+
+  <!-- <button ion-fab right mini (click)="nuevaPublicacion()"><ion-icon name="add"></ion-icon></button> -->
+
+  <ion-fab right bottom>
+    <button ion-fab mini (click)="nuevaPublicacion()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+
+
+</ion-content>

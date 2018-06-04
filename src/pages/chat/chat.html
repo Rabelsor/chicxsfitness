@@ -1,0 +1,60 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button class="back-button disable-hover bar-button bar-button-ios back-button-ios bar-button-default bar-button-default-ios show-back-button"
+      (click)="volverAmigos()" style="float: left;">
+      <span class="button-inner" style="color:white;">
+        <ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+        <span class="back-button-text back-button-text-ios">Back</span>
+      </span>
+    </button>
+    <ion-title style="margin-top: 1%;">Chat</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+
+  <div padding>
+    <ion-textarea id="textComen" [(ngModel)]="mensajeEnviar" placeholder="Enviar un mensaje" maxLength="500" autosize></ion-textarea>
+
+    <ion-fab right top id="buttonFav">
+      <button ion-fab mini (click)="enviarMensaje()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+
+  </div>
+
+  <div *ngFor="let m of mensajes" class="ion-card">
+    <ion-card *ngIf="m.uid == me.uid" class="mensajePropio">
+      <ion-item class="mensajePropio">
+        <ion-avatar item-start (click)="verPerfil(me.uid)">
+          <img src={{me.foto}}>
+        </ion-avatar>
+        <h2 (click)="verPerfil(me.uid)">{{me.nombre}} {{me.apellidos}}</h2>
+      </ion-item>
+      <ion-card-content>
+        <ion-input style="color:black;" disabled="true" value="{{m.contenido}}"></ion-input>
+        <p style="color:black;">{{m.fecha}}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="m.uid != me.uid" class="mensajeAjeno">
+      <ion-item class="mensajeAjeno">
+        <ion-avatar item-end (click)="verPerfil(to.uid)">
+          <img src={{to.foto}}>
+        </ion-avatar>
+        <h2 (click)="verPerfil(to.uid)">{{to.nombre}} {{to.apellidos}}</h2>
+      </ion-item>
+      <ion-card-content>
+        <ion-input style="color:black;" disabled="true" value="{{m.contenido}}"></ion-input>
+        <p style="color:black;">{{m.fecha}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+
+
+
+</ion-content>
