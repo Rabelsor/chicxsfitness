@@ -107,7 +107,6 @@ export class MyApp {
     this.fireAuth.logOut();
     this.appCtrl.getRootNav().setRoot('LoginPage');
     window.localStorage.setItem("logueado", "false");
-    //window.localStorage.clear();
     this.menu.close();
 
   }
