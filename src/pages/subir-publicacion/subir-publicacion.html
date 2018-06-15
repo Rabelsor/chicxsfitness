@@ -44,7 +44,7 @@
 
       <ion-item>
         <!-- <ion-img *ngIf="fotoActu" [width]="100" [height]="80" src="{{imgPreview}}"></ion-img> -->
-        <img [src]="imgPreview" *ngIf="fotoActu" [width]="100" [height]="80" imageViewer #myImage (click)="presentImage(myImage)"  />
+        <img [src]="imgPreview" *ngIf="fotoActu && imgPost.length>0" [width]="100" [height]="80" imageViewer #myImage (click)="presentImage(myImage)"  />
         <p *ngIf="!fotoActu"></p>
       </ion-item>
       <ion-item>
